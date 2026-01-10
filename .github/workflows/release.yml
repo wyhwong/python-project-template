@@ -1,17 +1,16 @@
-name: CI
+name: pypi-release
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  ci:
+  release:
+    environment: release
     strategy:
-      fail-fast: false
       matrix:
-        python-version: [ "3.10", "3.11", "3.12", "3.13" ]
+        python-version: [ "3.11" ]
         poetry-version: [ "2.1.3" ]
         os: [ "ubuntu-22.04" ]
     runs-on: ${{ matrix.os }}
@@ -30,7 +29,7 @@ jobs:
         working-directory: ./src
         run: |
           poetry install --with dev
-      - name: Pre-commit run
-        working-directory: ./src
-        run: |
-          poetry run pre-commit run -vvv
+      # - name: Build and publish
+      #   working-directory: ./src
+      #   run: |
+      #     poetry publish --build --username __token__ --password ${{ secrets.PYPI_TOKEN }} --skip-existing

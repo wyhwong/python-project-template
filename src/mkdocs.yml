@@ -1,0 +1,42 @@
+site_name: app docs
+site_description: Documentation for app
+site_url: https://wyhwong.github.io/app/
+docs_dir: docs
+
+nav:
+  - Home: index.md
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - content.code.copy
+    - content.tabs.link
+  palette:
+    - scheme: default
+      primary: deep blue
+      accent: deep blue
+      toggle:
+        icon: material/weather-night
+        name: To dark mode
+    - scheme: slate
+      primary: light blue
+      accent: light blue
+      toggle:
+        icon: material/weather-sunny
+        name: To light mode
+
+plugins:
+  - search
+  - mermaid2
+  - mkdocs-jupyter
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
