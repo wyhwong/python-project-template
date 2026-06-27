@@ -1,0 +1,6 @@
+[default.extend-identifiers]
+
+# Optional: if you have many similar names
+[default]
+extend-ignore-identifiers-re = [
+]
