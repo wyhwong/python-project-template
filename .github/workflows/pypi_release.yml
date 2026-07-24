@@ -56,10 +56,10 @@ jobs:
         run: |
           uv build
 
-      - name: Publish to PyPI
-        working-directory: ./src
-        env:
-          UV_PUBLISH_USERNAME: __token__
-          UV_PUBLISH_PASSWORD: ${{ secrets.PYPI_TOKEN }}
-        run: |
-          uv publish
+      # - name: Publish to PyPI
+      #   working-directory: ./src
+      #   env:
+      #     UV_PUBLISH_USERNAME: __token__
+      #     UV_PUBLISH_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+      #   run: |
+      #     uv publish

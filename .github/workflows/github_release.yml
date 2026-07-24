@@ -2,7 +2,7 @@ name: github-release
 
 on:
   push:
-    branches: [ tbc ]
+    branches: [ main ]
 
 permissions:
   contents: write

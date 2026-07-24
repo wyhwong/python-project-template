@@ -21,19 +21,21 @@ dependencies = [
     "tenacity (>=9.1.2,<10.0.0)",
 ]
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.1.1"
-pytest-asyncio = "^0.23.3"
-pytest-cov = "^4.1.0"
-pytest-env = "^1.1.3"
-mypy = "^1.8.0"
-pre-commit = "^3.6.0"
-ipykernel = "^6.29.4"
-
-[tool.poetry.group.mkdocs.dependencies]
-mkdocs = "^1.6.1"
-mkdocs-mermaid2-plugin = "^1.2.2"
-mkdocs-jupyter = "^0.25.1"
+[dependency-groups]
+dev = [
+    "pytest>=8.1.1",
+    "pytest-asyncio>=0.23.3",
+    "pytest-cov>=4.1.0",
+    "pytest-env>=1.1.3",
+    "mypy>=1.8.0",
+    "pre-commit>=3.6.0",
+    "ipykernel>=6.29.4",
+]
+mkdocs = [
+    "mkdocs>=1.6.1, <2.0.0",
+    "mkdocs-jupyter>=0.25.1",
+    "mkdocs-mermaid2-plugin>=1.2.3",
+]
 
 [tool.black]
 line-length = 120

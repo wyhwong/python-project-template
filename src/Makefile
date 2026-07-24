@@ -56,7 +56,7 @@ install:
 	poetry install
 	poetry run pre-commit install -f
 
-# Upate Python dependencies in poetry environment
+# Update Python dependencies in poetry environment
 update:
 	@echo "Updating Python dependencies..."
 	poetry update

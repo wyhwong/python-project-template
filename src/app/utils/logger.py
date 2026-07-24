@@ -4,14 +4,14 @@ import os
 import sys
 from typing import Optional
 
-import app.env
+import app.utils.env
 
 
 def get_logger(
     logger_name: str,
-    streaming_log_level: int = app.env.STREAMING_LOG_LEVEL,
-    file_log_level: int = app.env.FILE_LOG_LEVEL,
-    log_filepath: Optional[str] = app.env.LOG_FILEPATH,
+    streaming_log_level: int = app.utils.env.STREAMING_LOG_LEVEL,
+    file_log_level: int = app.utils.env.FILE_LOG_LEVEL,
+    log_filepath: Optional[str] = app.utils.env.LOG_FILEPATH,
 ) -> logging.Logger:
     """Function to create a logger object with the specified name and log levels.
 
@@ -41,11 +41,11 @@ def get_logger(
     #       This somehow results in logger.hasHandlers() returning True,
     #       but len(logger.handlers) == 0.
     if len(logger.handlers) > 0:
-        logger.warning("Logger %s already initialized. Return previous vesrion.", logger_name)
+        logger.warning("Logger %s already initialized. Return previous version.", logger_name)
         return logger
 
     logger.setLevel(file_log_level)
-    formatter = logging.Formatter(fmt=app.env.LOG_FMT, datefmt=app.env.LOG_DATEFMT)
+    formatter = logging.Formatter(fmt=app.utils.env.LOG_FMT, datefmt=app.utils.env.LOG_DATEFMT)
 
     # Add stream handler to log to console
     stream_handler = logging.StreamHandler(sys.stdout)
